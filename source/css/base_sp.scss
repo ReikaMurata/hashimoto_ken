@@ -89,7 +89,11 @@ textarea{
 #pankuzu{
 	padding: 10px 0;
 	font-size: 1.2rem;
-	margin-bottom: 50px;
+}
+
+//コンテンツ囲み
+#contents{
+    padding: 70px 0;
 }
 
 //ギャラリー
@@ -170,6 +174,61 @@ textarea{
 			margin-top: 10px;
 		}
 	}
+}
+
+//ページング
+.wp-pagenavi{
+	text-align: center;
+	margin-top: 60px;
+	span,a{
+		font-size: 1.4rem;
+		display: inline-block;
+		box-sizing: border-box;
+		vertical-align: top;
+		line-height: 1;
+	}
+	.nextpostslink,
+	.previouspostslink{
+		text-indent: -999em;
+		overflow: hidden;
+		width: 18px;
+		height: 18px;
+		border: 1px solid #727171;
+		background-size: 6px 8px;
+		background-position: center center;
+		background-repeat: no-repeat;
+		&:hover{
+			opacity: 0.7;
+		}
+	}
+	.nextpostslink{
+		background-image: url(../img/icon_right.png);
+		margin-left: 22px;
+	}
+	.previouspostslink{
+		background-image: url(../img/icon_left.png);
+		margin-right: 22px;
+	}
+	.page,
+	.current{
+		margin: 0 5px;
+		padding: 0 7px 9px 7px;
+		border-bottom: 2px solid #000;
+	}
+	.page{
+		opacity: .4;
+	}
+	.current{
+		color: #727171;
+	}
+	.extend{
+		margin: 0 7px;
+	}
+}
+
+//サイドバー
+#sidebar{
+    margin-top: 50px;
 }
 
 //フッター

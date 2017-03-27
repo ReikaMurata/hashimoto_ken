@@ -33,13 +33,15 @@ function fileDistribution(){
     elseif(is_page()){
         $page = get_page( get_the_ID() );
         $slug = $page -> post_name;
+        if(wp_is_mobile()) $slug .= '_sp'; 
         if(file_exists(ABSPATH.'/wp-content/themes/hashimotoken/assets/css/'.$slug.'.css')){wp_enqueue_style( $slug.'_style', get_template_directory_uri().'/assets/css/'.$slug.'.css' );}
         if(file_exists(ABSPATH.'/wp-content/themes/hashimotoken/assets/js/'.$slug.'.js')){wp_enqueue_script( $slug.'_script', get_template_directory_uri().'/assets/js/'.$slug.'.js', array('jquery'), false, true );}
     }
     //記事詳細ページ
     elseif(is_single()){
-        //コラム
-        wp_enqueue_style( 'blog_style', get_template_directory_uri().'/assets/css/blog.css' );
+        $slug = "blog";
+        if(wp_is_mobile()) $slug .= '_sp';
+        wp_enqueue_style( 'blog_style', get_template_directory_uri().'/assets/css/'.$slug.'.css' );
         wp_enqueue_style( 'editor_style', get_template_directory_uri().'/assets/css/editor.css' );
         wp_enqueue_style( 'lightbox_style', get_template_directory_uri().'/assets/css/lightbox.min.css' );
         wp_enqueue_script( 'lightbox', get_template_directory_uri().'/assets/js/lightbox.min.js', array('jquery'), false, true );
@@ -47,10 +49,10 @@ function fileDistribution(){
     }
     //投稿関連
     elseif(is_archive() || is_category() || is_tax() || is_date() || is_home()){
-        //コラム
         if(is_category() || is_singular('post') || is_home() || is_tag() || (is_date() && !is_post_type_archive())){
             $slug = "blog";
         }
+        if(wp_is_mobile()) $slug .= '_sp';
         if(file_exists(ABSPATH.'/wp-content/themes/hashimotoken/assets/css/'.$slug.'.css')){wp_enqueue_style( $slug.'_style', get_template_directory_uri().'/assets/css/'.$slug.'.css' );}
         if(file_exists(ABSPATH.'/wp-content/themes/hashimotoken/assets/js/'.$slug.'.js')){wp_enqueue_script( $slug.'_script', get_template_directory_uri().'/assets/js/'.$slug.'.js', array('jquery'), false, true );}
     }

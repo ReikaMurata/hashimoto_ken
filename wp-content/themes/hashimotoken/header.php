@@ -71,16 +71,17 @@
 			</div>
 			<menu role="menu" id="menu">
 				<ul>
-					<?php if(!is_front_page() && (is_paged())): ?>
-					<li><a href="<?php echo esc_url(home_url()); ?>"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/icon_top.png" alt="TOP" class="top"></a></li>
+					<?php if(!is_front_page() || is_paged()): ?>
+					<li><a href="<?php echo esc_url(home_url()); ?>"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/icon_top.png" alt="TOP" class="top"><p>top</p></a></li>
 					<?php endif; ?>
-					<li><a href="<?php echo esc_url(home_url()); ?>/blog/"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/icon_menu.png" alt="NEWS" class="new"><p>news</p></a></li>
+					<li><a href="<?php echo esc_url(home_url()); ?>/blog/category/news/"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/icon_menu.png" alt="NEWS" class="new"><p>news</p></a></li>
 					<li><a href="<?php echo esc_url(home_url()); ?>/profile/"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/icon_profile.png" alt="profile" class="profile"><p>profile</p></a></li>
 					<li><a href="<?php echo esc_url(home_url()); ?>/contact/"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/icon_contact.png" alt="contact" class="contact"><p>contact</p></a></li>
 					<li><a href="<?php echo esc_url(home_url()); ?>/blog/"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/icon_blog.png" alt="blog" class="blog"><p>blog</p></a></li>
 				</ul>
 			</menu>
 		</header>
+		<?php if(is_front_page() && (!is_paged())): ?>
 		<div id="new">
             <?php $args = array('posts_per_page'=>1, 'post_type'=>'illusts'); $posts = get_posts($args); if($posts): ?>
 			<?php foreach($posts as $post): setup_postdata($post); $illust = SCF::get('illust'); $about = SCF::get('about'); $ttl = strip_tags(get_the_title()); $link = wp_get_attachment_image_src($illust, 'illust_large')[0]; ?>
@@ -99,7 +100,8 @@
             <?php else: ?>
 			<p>イラストが登録されていません。</p>
 			<?php endif; ?>
-        </div>	
+        </div>
+        <?php endif; ?>	
 <?php endif; ?>
 
 <?php if(function_exists('yoast_breadcrumb') && !is_front_page()){ yoast_breadcrumb('<div id="pankuzu"><div class="container">','</div></div>');} ?>

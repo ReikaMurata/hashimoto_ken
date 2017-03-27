@@ -1,4 +1,5 @@
-#wp-admin‚âwp-includes‚Í–³‹Bwp-content“à‚ÍthemesƒtƒHƒ‹ƒ_‚¾‚¯ŠÇ—
-wp-admin/
-wp-includes/
-wp-content/*/!themes/
+#wp-adminï¿½ï¿½wp-includesï¿½Í–ï¿½ï¿½ï¿½ï¿½Bwp-contentï¿½ï¿½ï¿½themesï¿½tï¿½Hï¿½ï¿½ï¿½_ï¿½ï¿½ï¿½ï¿½ï¿½Ç—ï¿½
+/wp-admin/
+/wp-includes/
+/wp-content/*/!themes/
+wp-content/uploads/
