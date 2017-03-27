@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAKC,aAAK,CACJ,UAAU,CAAE,MAAM,CAClB,OAAO,CAAE,aAAa,CACtB,iBAAG,CACF,KAAK,CAAE,GAAG,CACV,MAAM,CAAE,IAAI,CAMb,WAAE,CACD,MAAM,CAAE,IAAI",
+"sources": ["../../../../../source/css/top_sp.scss"],
+"names": [],
+"file": "top_sp.css"
+}
