@@ -1,0 +1,24 @@
+@charset "UTF-8";
+@import "variables";
+
+//プロフィール
+#profile{
+	text-align: center;
+	.photo{
+		margin-bottom: 40px;
+	}
+	.name{
+		font-size: 2.2rem;
+		letter-spacing: 5px;
+	}
+	.kana{
+		font-size: 1rem;
+		margin-bottom: 20px;
+	}
+	.profile{
+		margin-bottom: 30px;
+	}
+	.history{
+		line-height: 2;
+	}
+}

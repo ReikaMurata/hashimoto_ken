@@ -1,0 +1,173 @@
+@import "variables";
+@charset "utf-8";
+
+$nums: 05, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60;
+$direction: top, right, bottom, left;
+
+@each $num in $nums{
+    .mar_a_#{$num}{
+        margin: #{$num}px;
+    }
+}
+
+@each $num in $nums{
+    .mar_t_#{$num}{
+        margin-top: #{$num}px;
+    }
+}
+
+@each $num in $nums{
+    .mar_r_#{$num}{
+        margin-right: #{$num}px;
+    }
+}
+
+@each $num in $nums{
+    .mar_b_#{$num}{
+        margin-bottom: #{$num}px;
+    }
+}
+
+@each $num in $nums{
+    .mar_l_#{$num}{
+        margin-left: #{$num}px;
+    }
+}
+
+@each $num in $nums{
+    .pad_a_#{$num}{
+        padding: #{$num}px;
+    }
+}
+
+@each $num in $nums{
+    .pad_t_#{$num}{
+        padding-top: #{$num}px;
+    }
+}
+
+@each $num in $nums{
+    .pad_r_#{$num}{
+        padding-right: #{$num}px;
+    }
+}
+
+@each $num in $nums{
+    .pad_b_#{$num}{
+        padding-bottom: #{$num}px;
+    }
+}
+
+@each $num in $nums{
+    .pad_l_#{$num}{
+        padding-left: #{$num}px;
+    }
+}
+
+
+.f22 {
+    font-size: 2.2rem;
+}
+.f21 {
+    font-size: 2.1rem;
+}
+.f20 {
+    font-size: 2rem;
+}
+.f19 {
+    font-size: 1.9rem;
+}
+.f18 {
+    font-size: 1.8rem;
+}
+.f17 {
+    font-size: 1.7rem;
+}
+.f16 {
+    font-size: 1.6rem;
+}
+.f15 {
+    font-size: 1.5rem;
+}
+.f14 {
+    font-size: 1.4rem;
+}
+.f13 {
+    font-size: 1.3rem;
+}
+.f12 {
+    font-size: 1.2rem;
+}
+.f11 {
+    font-size: 1.1rem;
+}
+.f10 {
+    font-size: 1rem;
+}
+.f9 {
+    font-size: .9rem;
+}
+.f8 {
+    font-size: .8rem;
+}
+
+
+.bold {
+    font-weight: 700;
+}
+.underline {
+    text-decoration: underline;
+}
+.no_under {
+    text-decoration: none;
+    &:hover{
+        text-decoration: underline;
+    }
+}
+
+
+.f_left {
+    float: left;
+}
+.f_right {
+    float: right;
+}
+.clear {
+    clear: both;
+}
+
+.left {
+    text-align: left;
+}
+.right {
+    text-align: right;
+}
+.center {
+    text-align: center;
+}
+
+
+.border {
+    border: 1px solid #eee;
+}
+@each $dire in $direction{
+    .border-#{$dire}{
+        border-#{$dire}: 1px solid #eee;
+    }
+}
+.borderless {
+    border: none;
+}
+
+.clearfix{
+    &:after{
+        content: " ";
+        display: block;
+        clear: both;
+    }
+}
+
+
+.opacity:hover {
+    opacity: .7;
+}

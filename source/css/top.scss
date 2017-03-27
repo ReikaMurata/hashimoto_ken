@@ -1,0 +1,42 @@
+@charset "UTF-8";
+@import "variables";
+
+//トップページ
+#top-header{
+	padding: 80px 0 0 0;
+	margin-bottom: 45px;
+	.menu{
+		float: left;
+		width: 205px;
+	}
+	.logo{
+		margin-bottom: 80px;
+	}
+	ul{
+		list-style: none;
+		margin-bottom: 80px;
+		letter-spacing: 3px;
+		li{
+			&:not(:last-child){
+				margin-bottom: 30px;
+			}
+			a{
+				img{
+					width: 15px;
+					height: auto;
+					vertical-align: middle;
+					margin-right: 15px;
+				}
+			}
+		}
+	}
+	.attention{
+		font-size: 1.2rem;
+		background: url(../img/icon_arrow.png) no-repeat left 3px / 11px 11px;
+		padding-left: 15px;
+	}
+	.new{
+		float: right;
+		width: 490px;
+	}
+}

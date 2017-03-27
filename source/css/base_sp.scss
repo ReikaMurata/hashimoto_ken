@@ -1,0 +1,124 @@
+@charset "UTF-8";
+@import "variables";
+
+//ノーマライズ
+html,body,div,span,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,dl,dt,dd,ol,ul,li,table,th,td,p,dl,dt,dd,menu{
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+a{
+	text-decoration: none;
+	color: inherit;
+	&:hover{
+		text-decoration: underline;
+	}
+}
+img{
+	max-width: 100%;
+	height: auto;
+	border: none;
+}
+
+//初期設定
+html{
+	font-size: 62.5%;
+}
+body{
+	font-size: 1.3em;
+	font-family: "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, sans-serif;
+	line-height: 1.6;
+	color: $gray;
+	background: url(#{$url}/sp_bg.png) repeat-x left -10px;
+}
+input,
+textarea{
+	font-size: 1.3rem;
+	font-family: "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, sans-serif;
+	vertical-align: middle;
+	color: $gray;
+}
+
+//全体囲み
+#sp-main-container{
+	position: relative;
+}
+//囲み中
+.container{
+	padding: 0 10px;
+}
+
+//ヘッダー
+#header{
+	.logo{
+		text-align: center;
+		padding: 35px 0 20px 0;
+		img{
+			width: 60%;
+			height: auto;
+		}
+	}
+}
+#menu{
+	ul{
+		list-style: none;
+		display: table;
+		width: 100%;
+		border-collapse: collapse;
+		li{
+			display: table-cell;
+			text-align: center;
+			vertical-align: top;
+			padding: 20px 10px;
+			border-top: 1px solid #ccc;
+			border-bottom: 1px solid #ccc;
+			img{
+				width: 15px;
+				&.top{
+					width: 13px;
+				}
+			}
+		}
+	}
+}
+
+//パンくず
+#pankuzu{
+	padding: 10px 0;
+	font-size: 1.2rem;
+	margin-bottom: 50px;
+}
+
+//フッター
+#pagetop{
+	position: fixed;
+	right: 100px;
+	bottom: 10px;
+	width: 38px;
+	height: 38px;
+	border-radius: 38px;
+	background: $gray;
+	box-sizing: border-box;
+	padding: 10px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+}
+#footer{
+	padding-bottom: 30px;
+	small,
+	.attention{
+		display: inline-block;
+		font-size: 1.2rem;
+		vertical-align: middle;
+	}
+	small{
+		margin-right: 35px;
+	}
+	.attention{
+		background: url(../img/icon_arrow.png) no-repeat left 4px / 11px 11px;
+		padding-left: 15px;
+	}
+}
