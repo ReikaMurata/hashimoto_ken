@@ -1,5 +1,5 @@
-#wp-admin��wp-includes�͖����Bwp-content���themes�t�H���_�����Ǘ�
-/wp-admin/
-/wp-includes/
-/wp-content/*/!themes/
+#wp-adminとwp-includes、wp-contentはuploadsディレクトリを無視
+wp-admin/
+wp-includes/
+wp-content/*/!themes/
 wp-content/uploads/
