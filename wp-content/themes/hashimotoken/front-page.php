@@ -1,5 +1,4 @@
 <?php get_header(); ?>
-	<?php if(!wp_is_mobile()): //以下PC版 ?>
 	<div id="contents" class="clearfix" role="main">
 		<?php $paged = get_query_var('page') ? get_query_var('page') : 1 ; $perpage = 2; $offset = ($paged-1)*$perpage+1; $args = array('post_type'=>'illusts', 'posts_per_page'=>$perpage, 'offset'=>$offset, 'paged'=>$paged); $myquery = new WP_Query($args); if($myquery->have_posts()): $count = 2; ?>
 		<ul class="illust-list">
@@ -24,7 +23,4 @@
 		<p>イラストが見つかりません</p>
 		<?php endif; wp_reset_query(); ?>
 	</div>
-	<?php else: //スマホ版 ?>
-	<p>スマホ版</p>
-	<?php endif; ?>
 <?php get_footer(); ?>

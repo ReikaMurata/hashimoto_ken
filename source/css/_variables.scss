@@ -12,4 +12,13 @@ $width: 1000px;
 $inner: 800px;
 
 //画像パス
-$url: '/wp-content/themes/hashimotoken/assets/img';
+$url: '../img';
+
+//ブレイクポイント iphone5
+$ip5: "screen and (max-width:320px)";
+
+//ブレイクポイント iphone6
+$ip6: "screen and (min-width:321px) and (max-width:375px)";
+
+//ブレイクポイント iphone6 plus
+$ip6p: "screen and (min-width:376px) and (max-width:414px)";

@@ -92,10 +92,90 @@ textarea{
 	margin-bottom: 50px;
 }
 
+//ギャラリー
+.hidden{
+	display: none;
+	.inline-box{
+		width: 280px;
+        @media #{$ip6} {
+            width: 340px;
+        }
+        @media #{$ip6p} {
+            width: 380px;
+        }
+		.ttl{
+			text-align: center;
+			font-size: 1.6rem;
+			margin-bottom: 10px;
+		}
+        .about{
+            word-break: break-all;
+        }
+	}
+}
+.illust-box{
+	position: relative;
+	display: block;
+	&::after{
+		content: "";
+		width: 30px;
+		height: 30px;
+		background: rgba(0,0,0,0.7) url(../img/icon_zoom.png) no-repeat left top / contain;
+		position: absolute;
+		left: 0;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		margin: auto;
+		opacity: 0;
+		-webkit-transition: all 0.2s ease-in;
+		-moz-transition: all 0.2s ease-in;
+		transition: all 0.2s ease-in;
+	}
+	&:hover{
+		&::after{
+			opacity: 1;
+		}
+		img{
+			-webkit-filter:brightness(80%);
+			-moz-filter:brightness(80%);
+			filter:brightness(80%);
+		}
+	}
+	img{
+		-webkit-transition: all 0.2s ease-in;
+		-moz-transition: all 0.2s ease-in;
+		transition: all 0.2s ease-in;
+	}
+	.thumbnail{
+		margin-bottom: 5px;
+	}
+	.ttl{
+		font-size: 1.2rem;
+	}
+}
+.illust-list{
+	list-style: none;
+	letter-spacing: -0.4em;
+	li{
+		letter-spacing: 0;
+		display: inline-block;
+		vertical-align: top;
+		width: 48%;
+        width: calc(50% - 5px);
+		&:not(:nth-child(2n)){
+			margin-right: 10px;
+		}
+		&:not(:nth-child(-n + 2)){
+			margin-top: 10px;
+		}
+	}
+}
+
 //フッター
 #pagetop{
 	position: fixed;
-	right: 100px;
+	right: 10px;
 	bottom: 10px;
 	width: 38px;
 	height: 38px;
