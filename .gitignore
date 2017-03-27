@@ -1,4 +1,4 @@
 #wp-adminやwp-includesは無視。wp-content内はthemesフォルダだけ管理
-/wp-admin/
-/wp-includes/
-/wp-content/*/!themes/
+wp-admin/
+wp-includes/
+wp-content/*/!themes/
