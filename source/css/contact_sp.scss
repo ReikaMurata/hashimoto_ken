@@ -1,0 +1,56 @@
+@charset "UTF-8";
+@import "variables";
+
+//お問い合わせ
+#contact{
+	background: url(../img/image_contact.png) no-repeat center top;
+	padding-top: 130px;
+	.hissu{
+		//color: #E10003;
+	}
+	.form{
+		margin: 30px auto 0 auto;
+		dl{
+			dt{
+				text-align: center;
+				font-size: 1.6rem;
+			}
+			dd{
+				margin-bottom: 15px;
+				input,
+				textarea{
+					width: 100%;
+					-webkit-box-sizing: border-box;
+					-moz-box-sizing: border-box;
+					box-sizing: border-box;
+					padding: 5px 10px;
+				}
+			}
+		}
+		.submit{
+			text-align: center;
+			margin-top: 30px;
+			input{
+				width: 140px;
+				display: inline-block;
+				border: none;
+				cursor: pointer;
+				background: $gray;
+				color: #fff;
+				font-size: 1.6rem;
+				text-align: center;
+				border-radius: 40px;
+				padding: 5px 10px;
+				border: 2px solid #fff;
+				box-sizing: border-box;
+				-webkit-box-sizing: border-box;
+				-moz-box-sizing: border-box;
+				&:hover{
+					background: #fff;
+					border-color: $gray;
+					color: inherit;
+				}
+			}
+		}
+	}
+}

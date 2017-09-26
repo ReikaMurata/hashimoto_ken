@@ -2,6 +2,12 @@
 @import "variables";
 
 //トップページ
+#contents{
+    border-right: none;
+    &::before{
+        display: none;
+    }
+}
 #top-header{
 	padding: 80px 0 0 0;
 	margin-bottom: 45px;
@@ -16,14 +22,46 @@
 		list-style: none;
 		margin-bottom: 80px;
 		letter-spacing: 3px;
+		font-size: 1.7rem;
 		li{
 			&:not(:last-child){
 				margin-bottom: 30px;
 			}
+            &.news{
+                a{
+                    img{
+                        height: 18px;
+						margin-right: 20px;
+                    }
+                }
+            }
+            &.profile{
+                a{
+                    img{
+                        //width: 95px;
+                    }
+                }
+            }
+            &.contact{
+                a{
+                    img{
+                        height: 12px;
+                    }
+                }
+            }
+            &.blog{
+                a{
+                    img{
+                        //width: 70px;
+                    }
+                }
+            }
 			a{
+                &:hover{
+                    opacity: 0.7;
+                }
 				img{
-					width: 15px;
-					height: auto;
+                    height: 16px;
 					vertical-align: middle;
 					margin-right: 15px;
 				}

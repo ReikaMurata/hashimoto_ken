@@ -2,10 +2,17 @@
 @import "variables";
 
 //プロフィール
+#contents{
+    border-right: none;
+    &::before{
+        display: none;
+    }
+}
 #profile{
 	text-align: center;
 	.photo{
-		margin-bottom: 40px;
+        width: 200px;
+        margin: 0 auto 40px auto;
 	}
 	.name{
 		font-size: 2.2rem;

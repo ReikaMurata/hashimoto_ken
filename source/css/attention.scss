@@ -2,6 +2,12 @@
 @import "variables";
 
 //著作権や使用に関するご注意
+#contents{
+    border-right: none;
+    &::before{
+        display: none;
+    }
+}
 #attention{
 	width: 550px;
 	margin: 0 auto;

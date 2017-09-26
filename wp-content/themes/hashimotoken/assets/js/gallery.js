@@ -1,3 +1,3 @@
 $(function(){
-	//$('.lightbox').lightbox();
+	$("a.illust-box").featherlightGallery();
 });

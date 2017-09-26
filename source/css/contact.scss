@@ -2,11 +2,17 @@
 @import "variables";
 
 //お問い合わせ
+#contents{
+    border-right: none;
+    &::before{
+        display: none;
+    }
+}
 #contact{
 	background: url(../img/image_contact.png) no-repeat center top;
 	padding-top: 130px;
 	.hissu{
-		color: #E10003;
+		//color: #E10003;
 	}
 	.form{
 		width: 605px;
@@ -20,20 +26,29 @@
 			&:not(:last-child){
 				margin-bottom: 10px;
 			}
+			&:last-of-type{
+				dt{
+					vertical-align: top;
+				}
+			}
 			dt,dd{
 				display: table-cell;
 				box-sizing: border-box;
-				vertical-align: top;
+				vertical-align: middle;
 				-webkit-box-sizing: border-box;
 				-moz-box-sizing: border-box;
 			}
 			dt{
 				border-right: 1px solid $gray;
-				width: 130px;
+				width: 140px;
 				text-align: center;
+                position: relative;
 				.hissu{
-					float: right;
+                    position: absolute;
+                    right: 0;
+                    top: 1px;
 					margin-right: 5px;
+					margin-top: 2px;
 					font-size: 1rem;
 				}
 			}

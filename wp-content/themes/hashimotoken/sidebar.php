@@ -2,10 +2,14 @@
 	<div id="sidebar">
 		<div class="box profile">
 			<p class="ttl">profile</p>
-			<div class="photo"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/img_profile-100.jpg" alt="橋本健"></div>
-			<p class="name">橋本　健<span class="kana">ハシモト　ケン</span></p>
-			<p class="job">イラストレーター<br>グラフィックデザイナー</p>
-			<p class="link"><a href="<?php echo esc_url(home_url()); ?>/prodile/">プロフィールの詳細</a></p>
+			<div class="box">
+                <div class="photo"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/profile.jpg" alt="橋本 健"></div>
+                <div class="data">
+                    <p class="name">橋本 健<span class="kana">ハシモト ケン</span></p>
+                    <p class="job">イラストレーター<br>グラフィックデザイナー</p>
+                    <p class="link"><a href="<?php echo esc_url(home_url()); ?>/prodile/">プロフィールの詳細</a></p>
+                </div>
+            </div>
 		</div>
 		<div class="box archive">
 			<p class="ttl">archive</p>
@@ -70,8 +74,12 @@
 				<dt>ブログ内を検索</dt>
 				<dd>
 				<form action="<?php echo esc_url(home_url()); ?>" method="get">
-					<input type="text" name="s">
-					<button><img src="<?php echo get_template_directory_uri(); ?>/assets/img/icon_search.svg" alt="検索" title="このワードで検索"></button>	
+					<div class="wrap">
+						<div class="cell"><input type="text" name="s"></div>
+						<div class="cell">
+							<button><img src="<?php echo get_template_directory_uri(); ?>/assets/img/icon_search.svg" alt="検索" title="このワードで検索"></button>
+						</div>
+					</div>
 				</form>
 				</dd>
 			</dl>

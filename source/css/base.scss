@@ -78,16 +78,48 @@ textarea{
 			letter-spacing: 0;
 			display: inline-block;
 			&:not(:last-child){
-				margin-right: 30px;
+				margin-right: 20px;
 			}
 			a{
 				letter-spacing: 3px;
+                &:hover{
+                    opacity: .7;
+                }
 			}
 			img{
-				width: 15px;
-				height: auto;
 				margin-right: 10px;
+                height: 13px;
+				width: auto;
+                vertical-align: middle;
 			}
+            &.top{
+                img{
+                    //width: 52px;
+                }
+            }
+            &.news{
+                img{
+                    //width: 62px;
+                }
+            }
+            &.profile{
+                img{
+                    //width: 84px;
+					height: 15px;
+                }
+            }
+            &.contact{
+                img{
+                    //width: 95px;
+					height: 11px;
+                }
+            }
+            &.blog{
+                img{
+                    //width: 62px;
+					height: 15px;
+                }
+            }
 		}
 	}
 }
@@ -100,7 +132,17 @@ textarea{
 
 //コンテンツ部分
 #contents{
-	padding-bottom: 100px;
+	padding-bottom: 140px;
+	border-right: 1px solid $gray;
+	position: relative;
+	&::before{
+		content: "";
+		position: absolute;
+		right: 220px;
+		width: 1px;
+		height: 100%;
+		background: $gray;
+	}
 }
 
 //サイドバー
@@ -108,8 +150,6 @@ textarea{
 	float: right;
 	width: 220px;
 	padding: 0 30px 65px 30px;
-	border-right: 1px solid $gray;
-	border-left: 1px solid $gray;
 	box-sizing: border-box;
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
@@ -131,10 +171,10 @@ textarea{
 				margin-bottom: 15px;
 			}
 			.name{
-				font-size: 1.2rem;
+				font-size: 1.4rem;
 				margin-bottom: 5px;
 				.kana{
-					font-size: 1rem;
+					font-size: .9rem;
 					margin-left: 10px;
 				}
 			}
@@ -158,6 +198,7 @@ textarea{
 					padding-left: 15px;
 					cursor: pointer;
 					position: relative;
+                    margin-bottom: 5px;
 					&::before{
 						content: "";
 						background: url(../img/icon_acordion_arrow.svg) no-repeat left top / contain;
@@ -180,6 +221,11 @@ textarea{
 					list-style: none;
 					margin-left: 20px;
 					display: none;
+                    li{
+                        &:not(:last-child){
+                            margin-bottom: 3px;
+                        }
+                    }
 				}
 			}
 		}
@@ -198,6 +244,7 @@ textarea{
 		&.new{
 			.post-list{
 				list-style: none;
+				font-size: 1.2rem;
 				li{
 					&:not(:last-child){
 						margin-bottom: 10px;
@@ -212,28 +259,44 @@ textarea{
 					font-size: 1rem;
 				}
 				dd{
-					input,
-					button{
-						display: inline-block;
-					}
-					input[type=text]{
-						width: 120px;
-						width: calc(100% - 40px);
-					}
-					button{
-						width: 24px;
-						border: none;
-						background: $gray;
-						vertical-align: middle;
-						line-height: 1;
-						padding: 4.5px 2px;
-						cursor: pointer;
-						box-sizing: border-box;
-						-webkit-box-sizing: border-box;
-						-moz-box-sizing: border-box;
-						img{
-							width: auto;
-							height: 14px;
+					.wrap{
+						display: table;
+						width: 100%;
+						border-collapse: collapse;
+						.cell{
+							display: table-cell;
+							&:nth-child(1){
+                                border: 1px solid $gray;
+                            }
+							&:nth-child(2){
+								width: 24px;
+								background: $gray;
+                                border: 1px solid $gray;
+							}
+							input,
+							button{
+								display: inline-block;
+							}
+							input[type=text]{
+								width: 100%;
+                                border: none;
+							}
+							button{
+								width: 100%;
+								border: none;
+								background: $gray;
+								vertical-align: middle;
+								line-height: 1;
+								padding: 4.5px 2px;
+								cursor: pointer;
+								box-sizing: border-box;
+								-webkit-box-sizing: border-box;
+								-moz-box-sizing: border-box;
+								img{
+									width: auto;
+									height: 14px;
+								}
+							}
 						}
 					}
 				}
@@ -246,6 +309,9 @@ textarea{
 	display: none;
 	.inline-box{
 		width: 600px;
+        .thumb{
+            margin-bottom: 25px;
+        }
 		.ttl{
 			text-align: center;
 			font-size: 1.6rem;
@@ -256,39 +322,41 @@ textarea{
 .illust-box{
 	position: relative;
 	display: block;
-	&::after{
-		content: "";
-		width: 30px;
-		height: 30px;
-		background: rgba(0,0,0,0.7) url(../img/icon_zoom.png) no-repeat left top / contain;
-		position: absolute;
-		left: 0;
-		top: 0;
-		right: 0;
-		bottom: 0;
-		margin: auto;
-		opacity: 0;
-		-webkit-transition: all 0.2s ease-in;
-		-moz-transition: all 0.2s ease-in;
-		transition: all 0.2s ease-in;
-	}
-	&:hover{
-		&::after{
-			opacity: 1;
-		}
-		img{
-			-webkit-filter:brightness(80%);
-			-moz-filter:brightness(80%);
-			filter:brightness(80%);
-		}
-	}
-	img{
-		-webkit-transition: all 0.2s ease-in;
-		-moz-transition: all 0.2s ease-in;
-		transition: all 0.2s ease-in;
-	}
+    &:hover{
+        .thumbnail{
+            &::after{
+                opacity: 1;
+            }
+            img{
+                -webkit-filter:brightness(80%);
+                -moz-filter:brightness(80%);
+                filter:brightness(80%);
+            }
+        }  
+    }
 	.thumbnail{
 		margin-bottom: 5px;
+        position: relative;
+        &::after{
+            content: "";
+            width: 30px;
+            height: 30px;
+            background: rgba(0,0,0,0.7) url(../img/icon_zoom.png) no-repeat left top / contain;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            opacity: 0;
+            margin-left: -15px;
+            margin-top: -15px;
+            -webkit-transition: all 0.2s ease-in;
+            -moz-transition: all 0.2s ease-in;
+            transition: all 0.2s ease-in;
+        }
+        img{
+            -webkit-transition: all 0.2s ease-in;
+            -moz-transition: all 0.2s ease-in;
+            transition: all 0.2s ease-in;
+        }
 	}
 	.ttl{
 		font-size: 1.2rem;

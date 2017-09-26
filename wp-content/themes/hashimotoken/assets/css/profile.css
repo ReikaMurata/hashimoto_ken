@@ -1,2 +1,2 @@
-#profile{text-align:center}#profile .photo{margin-bottom:40px}#profile .name{font-size:2.2rem;letter-spacing:5px}#profile .kana{font-size:1rem;margin-bottom:20px}#profile .profile{margin-bottom:30px}#profile .history{line-height:2}
+#contents{border-right:none}#contents::before{display:none}#profile{text-align:center}#profile .photo{width:200px;margin:0 auto 40px auto}#profile .name{font-size:2.2rem;letter-spacing:5px}#profile .kana{font-size:1rem;margin-bottom:20px}#profile .profile{margin-bottom:30px}#profile .history{line-height:2}
 /*# sourceMappingURL=profile.css.map */

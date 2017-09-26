@@ -87,7 +87,6 @@ function change_menus(){
     global $menu;
     global $submenu;
     $menu[5][0] = 'ブログ';//「投稿」を「ブログ」に名前変更
-    unset($menu[25]);//コメント削除
 }
 add_action('admin_menu', 'change_menus');
 
@@ -122,6 +121,16 @@ function custom_archives_link($html){
     return $html;
 }
 add_filter('get_archives_link', 'custom_archives_link', 10);
+
+/*===========================================*/
+//ブログのコメントを名前のみ必須にする
+/*===========================================*/
+function preprocess_comment_author( $commentdata ) {
+    if ("" === trim( $commentdata['comment_author'] ))
+    wp_die('名前を入力して下さい。');
+    return $commentdata;
+}
+add_filter('preprocess_comment', 'preprocess_comment_author', 2, 1);
 
 /*===========================================*/
 //各ページメインクエリ設定

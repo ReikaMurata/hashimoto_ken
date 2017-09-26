@@ -12,25 +12,27 @@
 <div id="main-container">
 	<div class="container">
 		<header role="banner">
-			<?php if(is_front_page() && (!is_paged())): ?>
+			<?php 
+            //トップページのみ（トップの2ページ目以降は無効）
+            if(is_front_page() && (!is_paged())): ?>
 			<div id="top-header" class="clearfix">
 				<div class="menu">
 					<menu role="menu">
 						<h1 class="logo"><a href="<?php echo esc_url(home_url()); ?>" class="opacity"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo.svg" alt="ken hashimoto"></a></h1>
 						<ul>
-							<li><a href="<?php echo esc_url(home_url()); ?>/blog/"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/icon_menu.png" alt="news">news</a></li>
-							<li><a href="<?php echo esc_url(home_url()); ?>/profile/"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/icon_profile.png" alt="profile">profile</a></li>
-							<li><a href="<?php echo esc_url(home_url()); ?>/contact/"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/icon_contact.png" alt="contact">contact</a></li>
-							<li><a href="<?php echo esc_url(home_url()); ?>/blog/"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/icon_blog.png" alt="blog">blog</a></li>
+							<li class="news"><a href="<?php echo esc_url(home_url()); ?>/category/news/"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/icon_menu.svg" alt="news">news</a></li>
+							<li class="profile"><a href="<?php echo esc_url(home_url()); ?>/profile/"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/icon_profile.svg" alt="profile">profile</a></li>
+							<li class="contact"><a href="<?php echo esc_url(home_url()); ?>/contact/"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/icon_contact.svg" alt="contact">contact</a></li>
+							<li class="blog"><a href="<?php echo esc_url(home_url()); ?>/blog/"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/icon_blog.svg" alt="blog">blog</a></li>
 						</ul>
 						<p class="attention"><a href="<?php echo esc_url(home_url()); ?>/attention/">著作権や使用に関するご注意</a></p>
 					</menu>
 				</div>
 				<div class="new">
-					<?php $args = array('posts_per_page'=>1, 'post_type'=>'illusts'); $posts = get_posts($args); if($posts): ?>
+					<?php $args = array('posts_per_page'=>1, 'post_type'=>'illusts'); if(SCF::get('mainvisual')){$args += array('include'=>SCF::get('mainvisual')[0]);} $posts = get_posts($args); if($posts): ?>
 					<?php foreach($posts as $post): setup_postdata($post); $illust = SCF::get('illust'); $about = SCF::get('about'); $ttl = strip_tags(get_the_title()); $link = wp_get_attachment_image_src($illust, 'illust_large')[0]; ?>
-					<a data-featherlight="#illust01" href="#" class="illust-box">
-						<div class="thumbnail"><?php if($illust){echo wp_get_attachment_image($illust, 'illust_large', array('alt'=>$ttl));}?></div>
+					<a href="#illust01" class="illust-box">
+						<div class="thumbnail"><?php if($illust){echo wp_get_attachment_image($illust, 'full', array('alt'=>$ttl));}?></div>
 						<p class="ttl"><?php echo $ttl; ?></p>
 					</a>
 					<div id="illust01" class="hidden">
@@ -51,11 +53,11 @@
 				<h1 class="logo"><a href="<?php echo esc_url(home_url()); ?>" class="opacity"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo2.svg" alt="ken hashimoto"></a></h1>
 				<menu role="menu">
 					<ul>
-						<li><a href="<?php echo esc_url(home_url()); ?>"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/icon_top.png" alt="top">top</a></li>
-						<li><a href="<?php echo esc_url(home_url()); ?>/blog/"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/icon_menu.png" alt="news">news</a></li>
-						<li><a href="<?php echo esc_url(home_url()); ?>/profile/"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/icon_profile.png" alt="profile">profile</a></li>
-						<li><a href="<?php echo esc_url(home_url()); ?>/contact/"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/icon_contact.png" alt="contact">contact</a></li>
-						<li><a href="<?php echo esc_url(home_url()); ?>/blog/"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/icon_blog.png" alt="blog">blog</a></li>
+						<li class="top"><a href="<?php echo esc_url(home_url()); ?>"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/icon_top.svg" alt="top">top</a></li>
+						<li class="news"><a href="<?php echo esc_url(home_url()); ?>/category/news/"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/icon_menu.svg" alt="news">news</a></li>
+						<li class="profile"><a href="<?php echo esc_url(home_url()); ?>/profile/"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/icon_profile.svg" alt="profile">profile</a></li>
+						<li class="contact"><a href="<?php echo esc_url(home_url()); ?>/contact/"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/icon_contact.svg" alt="contact">contact</a></li>
+						<li class="blog"><a href="<?php echo esc_url(home_url()); ?>/blog/"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/icon_blog.svg" alt="blog">blog</a></li>
 					</ul>
 				</menu>
 			</div>
@@ -74,7 +76,7 @@
 					<?php if(!is_front_page() || is_paged()): ?>
 					<li><a href="<?php echo esc_url(home_url()); ?>"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/icon_top.png" alt="TOP" class="top"><p>top</p></a></li>
 					<?php endif; ?>
-					<li><a href="<?php echo esc_url(home_url()); ?>/blog/category/news/"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/icon_menu.png" alt="NEWS" class="new"><p>news</p></a></li>
+					<li><a href="<?php echo esc_url(home_url()); ?>/category/news/"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/icon_menu.png" alt="NEWS" class="new"><p>news</p></a></li>
 					<li><a href="<?php echo esc_url(home_url()); ?>/profile/"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/icon_profile.png" alt="profile" class="profile"><p>profile</p></a></li>
 					<li><a href="<?php echo esc_url(home_url()); ?>/contact/"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/icon_contact.png" alt="contact" class="contact"><p>contact</p></a></li>
 					<li><a href="<?php echo esc_url(home_url()); ?>/blog/"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/icon_blog.png" alt="blog" class="blog"><p>blog</p></a></li>
@@ -83,10 +85,10 @@
 		</header>
 		<?php if(is_front_page() && (!is_paged())): ?>
 		<div id="new">
-            <?php $args = array('posts_per_page'=>1, 'post_type'=>'illusts'); $posts = get_posts($args); if($posts): ?>
+            <?php $args = array('posts_per_page'=>1, 'post_type'=>'illusts'); if(SCF::get('mainvisual')){$args += array('include'=>SCF::get('mainvisual')[0]);} $posts = get_posts($args); if($posts): ?>
 			<?php foreach($posts as $post): setup_postdata($post); $illust = SCF::get('illust'); $about = SCF::get('about'); $ttl = strip_tags(get_the_title()); $link = wp_get_attachment_image_src($illust, 'illust_large')[0]; ?>
             <a data-featherlight="#illust01" href="#" class="illust-box">
-				<div class="thumbnail"><?php if($illust){echo wp_get_attachment_image($illust, 'illust_large', array('alt'=>$ttl));}?></div>
+				<div class="thumbnail"><?php if($illust){echo wp_get_attachment_image($illust, 'full', array('alt'=>$ttl));}?></div>
 				<p class="ttl"><?php echo $ttl; ?></p>
             </a>
             <div id="illust01" class="hidden">

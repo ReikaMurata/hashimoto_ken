@@ -3,11 +3,11 @@
 //ファビコン指定
 /*===========================================*/
 function site_favicon() {//HPのファビコン
-  echo '<link rel="icon" type="image/x-icon" href="'.esc_url(home_url('/')).'assets/img/common/favicon.ico">'."\n";
+  echo '<link rel="icon" type="image/x-icon" href="'.esc_url(home_url('/')).'favicon.ico">'."\n";
 }
 add_action('wp_head', 'site_favicon');
 function admin_favicon() {//管理画面のファビコン
-  echo '<link rel="icon" type="image/x-icon" href="'.esc_url(home_url('/')).'assets/img/common/favicon.ico">'."\n";
+  echo '<link rel="icon" type="image/x-icon" href="'.esc_url(home_url('/')).'favicon.ico">'."\n";
 }
 add_action('admin_head', 'admin_favicon');
 

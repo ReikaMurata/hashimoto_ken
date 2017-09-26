@@ -1,0 +1,425 @@
+@charset "UTF-8";
+@import "variables";
+
+//ノーマライズ
+html,body,div,span,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,dl,dt,dd,ol,ul,li,table,th,td,p,dl,dt,dd,menu{
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+a{
+	text-decoration: none;
+	color: inherit;
+	&:hover{
+		text-decoration: underline;
+	}
+}
+img{
+	max-width: 100%;
+	height: auto;
+	border: none;
+}
+
+//初期設定
+html{
+	font-size: 62.5%;
+}
+body{
+	font-size: 1.3em;
+	font-family: "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, sans-serif;
+	line-height: 1.6;
+	color: $gray;
+	background: url(#{$url}/sp_bg.png) repeat-x left -10px;
+}
+input,
+textarea{
+	font-size: 1.3rem;
+	font-family: "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, sans-serif;
+	vertical-align: middle;
+	color: $gray;
+}
+
+//全体囲み
+#sp-main-container{
+	position: relative;
+}
+//囲み中
+.container{
+	padding: 0 10px;
+}
+
+//ヘッダー
+#header{
+	.logo{
+		text-align: center;
+		padding: 35px 0 20px 0;
+		img{
+			width: 60%;
+			height: auto;
+		}
+	}
+}
+#menu{
+	ul{
+		list-style: none;
+		display: table;
+		width: 100%;
+		border-collapse: collapse;
+		li{
+			display: table-cell;
+			text-align: center;
+			vertical-align: top;
+			padding: 20px 10px;
+			border-top: 1px solid #ccc;
+			border-bottom: 1px solid #ccc;
+			img{
+				width: 15px;
+				&.top{
+					width: 13px;
+				}
+			}
+		}
+	}
+}
+
+//パンくず
+#pankuzu{
+	padding: 10px 0;
+	font-size: 1.2rem;
+}
+
+//コンテンツ囲み
+#contents{
+    padding: 70px 0;
+}
+
+//ギャラリー
+.hidden{
+	display: none;
+	.inline-box{
+		width: 280px;
+        @media #{$ip6} {
+            width: 340px;
+        }
+        @media #{$ip6p} {
+            width: 380px;
+        }
+		.ttl{
+			text-align: center;
+			font-size: 1.6rem;
+            margin: 15px 0 10px 0;
+		}
+        .about{
+            word-break: break-all;
+            padding: 0 20px 10px 20px;
+        }
+	}
+}
+.illust-box{
+	position: relative;
+	display: block;
+	&:hover{
+        .thumbnail{
+            &::after{
+			opacity: 1;
+            }
+            img{
+                -webkit-filter:brightness(80%);
+                -moz-filter:brightness(80%);
+                filter:brightness(80%);
+            }
+        }
+	}
+	.thumbnail{
+		margin-bottom: 5px;
+        &::after{
+            content: "";
+            width: 30px;
+            height: 30px;
+            background: rgba(0,0,0,0.7) url(../img/icon_zoom.png) no-repeat left top / contain;
+            position: absolute;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+            opacity: 0;
+            -webkit-transition: all 0.2s ease-in;
+            -moz-transition: all 0.2s ease-in;
+            transition: all 0.2s ease-in;
+        }
+        img{
+            -webkit-transition: all 0.2s ease-in;
+            -moz-transition: all 0.2s ease-in;
+            transition: all 0.2s ease-in;
+        }
+	}
+	.ttl{
+		font-size: 1rem;
+        line-height: 1.3;
+	}
+}
+.illust-list{
+	list-style: none;
+	letter-spacing: -0.4em;
+	li{
+		letter-spacing: 0;
+		display: inline-block;
+		vertical-align: top;
+		width: 48%;
+        width: calc(50% - 5px);
+		&:not(:nth-child(2n)){
+			margin-right: 10px;
+		}
+		&:not(:nth-child(-n + 2)){
+			margin-top: 10px;
+		}
+	}
+}
+
+//ページング
+.wp-pagenavi{
+	text-align: center;
+	margin-top: 60px;
+	span,a{
+		font-size: 1.4rem;
+		display: inline-block;
+		box-sizing: border-box;
+		vertical-align: top;
+		line-height: 1;
+	}
+	.nextpostslink,
+	.previouspostslink{
+		text-indent: -999em;
+		overflow: hidden;
+		width: 18px;
+		height: 18px;
+		border: 1px solid #727171;
+		background-size: 6px 8px;
+		background-position: center center;
+		background-repeat: no-repeat;
+		&:hover{
+			opacity: 0.7;
+		}
+	}
+	.nextpostslink{
+		background-image: url(../img/icon_right.png);
+		margin-left: 22px;
+	}
+	.previouspostslink{
+		background-image: url(../img/icon_left.png);
+		margin-right: 22px;
+	}
+	.page,
+	.current{
+		margin: 0 5px;
+		padding: 0 7px 9px 7px;
+		border-bottom: 2px solid #000;
+	}
+	.page{
+		opacity: .4;
+	}
+	.current{
+		color: #727171;
+	}
+	.extend{
+		margin: 0 7px;
+	}
+}
+
+//サイドバー
+#sidebar{
+	margin-top: 50px;
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	> .box{
+		&:not(:last-child){
+			margin-bottom: 32px;
+		}
+		> .ttl{
+			background: $gray url(../img/triangle_white.png) no-repeat right top / auto 100%;
+			color: #fff;
+			padding: 2px 10px;
+			margin-bottom: 20px;
+			letter-spacing: 2px;
+		}
+		//プロフィール
+		&.profile{
+            .box{
+                display: table;
+                width: 100%;
+                border-collapse: collapse;
+                .photo{
+                    width: 120px;
+                    display: table-cell;
+                }
+                .data{
+                    display: table-cell;
+                    text-align: left;
+                    vertical-align: middle;
+                    padding-left: 15px;
+                }
+                .name{
+                    font-size: 1.4rem;
+                    margin-bottom: 5px;
+                    .kana{
+                        font-size: 1rem;
+                        margin-left: 10px;
+                    }
+                }
+                .job{
+                    font-size: 1.1rem;
+                    margin-bottom: 5px;
+                }
+                .link{
+                    font-size: 1.1rem;
+                    &::before{
+                        content: "";
+                        background: url(../img/icon_arrow.png) no-repeat left top / contain;
+                        width: 11px;
+                        height: 11px;
+                        display: inline-block;
+                        margin-right: 5px;
+                        vertical-align: middle;
+                    }
+                }
+            }
+		}
+		//アーカイブ
+		&.archive{
+			.list{
+				&:not(:last-child){
+					margin-bottom: 10px;
+				}
+				.year{
+					padding-left: 15px;
+					cursor: pointer;
+					position: relative;
+					&::before{
+						content: "";
+						background: url(../img/icon_acordion_arrow.svg) no-repeat left top / contain;
+						width: 11px;
+						height: 11px;
+						position: absolute;
+						left: 0;
+						top: 5px;
+						transition: all .3s ease;
+					}
+					&.current{
+						&::before{
+							transform: rotate(90deg);
+							-webkit-transform: rotate(90deg);
+							-moz-transform: rotate(90deg);
+						}
+					}
+				}
+				ul{
+					list-style: none;
+					margin-left: 20px;
+					display: none;
+				}
+			}
+		}
+		//カテゴリー
+		&.category{
+			ul{
+				list-style: none;
+				li{
+					&:not(:last-child){
+						margin-bottom: 5px;
+					}
+				}
+			}
+		}
+		//最新記事
+		&.new{
+			.post-list{
+				list-style: none;
+				letter-spacing: -0.4em;
+				li{
+					letter-spacing: 0;
+					display: inline-block;
+					vertical-align: top;
+					font-size: 1.2rem;
+					width: 48%;
+					width: calc(50% - 10px);
+					&:not(:nth-child(2n)){
+						margin-right: 20px;
+					}
+					&:not(:nth-child(-n + 2)){
+						margin-top: 10px;
+					}
+				}
+			}
+		}
+		//サイト内検索
+		&.search{
+			dl{
+				dt{
+					font-size: 1rem;
+				}
+				dd{
+					input,
+					button{
+						display: inline-block;
+					}
+					input[type=text]{
+						width: 120px;
+						width: calc(100% - 40px);
+					}
+					button{
+						width: 24px;
+						border: none;
+						background: $gray;
+						vertical-align: middle;
+						line-height: 1;
+						padding: 4.5px 2px;
+						cursor: pointer;
+						box-sizing: border-box;
+						-webkit-box-sizing: border-box;
+						-moz-box-sizing: border-box;
+						img{
+							width: auto;
+							height: 14px;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+//フッター
+#pagetop{
+	position: fixed;
+	right: 10px;
+	bottom: 10px;
+	width: 38px;
+	height: 38px;
+	border-radius: 38px;
+	background: $gray;
+	box-sizing: border-box;
+	padding: 10px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+}
+#footer{
+	padding-bottom: 50px;
+	small,
+	.attention{
+		display: inline-block;
+		font-size: 1.2rem;
+		vertical-align: middle;
+	}
+	small{
+		margin-right: 35px;
+	}
+	.attention{
+		background: url(../img/icon_arrow.png) no-repeat left 4px / 11px 11px;
+		padding-left: 15px;
+	}
+}

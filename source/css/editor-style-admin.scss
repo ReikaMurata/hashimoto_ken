@@ -1,0 +1,21 @@
+@charset "utf-8";
+@import "variables";
+
+/* ---------------------------------------------------------
+//エディタースタイル
+----------------------------------------------------------*/
+html {
+    font-size: 62.5%;
+    color: $gray;
+    text-size-adjust: 100%;
+}
+body {
+    font-family: "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, sans-serif;
+    font-size: 1.4em;
+    line-height: 2;
+    width: 530px;
+    margin: 0 auto;
+}
+#tinymce{
+    @include editor;
+}

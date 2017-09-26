@@ -11,7 +11,7 @@ function custom_editor_settings( $initArray ){
 	$initArray['extended_valid_elements'] = "iframe[id|class|title|style|align|frameborder|height|longdesc|marginheight|marginwidth|name|scrolling|src|width]";
     return $initArray;
 }
-add_editor_style(get_stylesheet_directory_uri().'/editor-style.css?date='.date('YmdHis'));//独自css読み込み
+add_editor_style(get_stylesheet_directory_uri().'/assets/css/editor-style-admin.css?date='.date('YmdHis'));//独自css読み込み
 add_filter( 'tiny_mce_before_init', 'custom_editor_settings', 1000 );
 
 //子カテゴリーチェックで自動的に親カテゴリーにもチェック
@@ -211,7 +211,7 @@ function custom_gallery_shortcode($attr) {
   //オリジナルではこの部分にスタイルシートの指定があるので削除
  
   $size_class = sanitize_html_class( $size );
-  $gallery_div = "<div id='$selector' class='gallery galleryid-{$id} gallery-columns-{$columns} gallery-size-{$size_class}'><ul class='clearfix'>";    //ul タグを追加（必要であればクラス名の追加や変更が可能）
+  $gallery_div = "<div id='$selector' class='gallery galleryid-{$id} gallery-columns-{$columns} gallery-size-{$size_class}'><ul>";    //ul タグを追加（必要であればクラス名の追加や変更が可能）
   $output = apply_filters( 'gallery_style', $gallery_style . "\n\t\t" . $gallery_div );
  
   $i = 0;

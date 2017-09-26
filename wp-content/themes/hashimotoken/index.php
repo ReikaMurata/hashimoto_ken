@@ -4,7 +4,7 @@ if(is_page()){
     $slug = $page->post_name;
 }
 //ブログ関連
-elseif(is_category() || is_singular('post') || is_home() || is_tag() || (is_date() && !is_post_type_archive())){
+elseif(is_category() || is_singular('post') || is_search() || is_home() || is_tag() || (is_date() && !is_post_type_archive())){
     $slug = 'blog';
 }
 ?>

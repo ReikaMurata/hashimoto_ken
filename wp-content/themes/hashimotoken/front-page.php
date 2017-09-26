@@ -1,10 +1,10 @@
 <?php get_header(); ?>
 	<div id="contents" class="clearfix" role="main">
-		<?php $paged = get_query_var('page') ? get_query_var('page') : 1 ; $perpage = 2; $offset = ($paged-1)*$perpage+1; $args = array('post_type'=>'illusts', 'posts_per_page'=>$perpage, 'offset'=>$offset, 'paged'=>$paged); $myquery = new WP_Query($args); if($myquery->have_posts()): $count = 2; ?>
+		<?php $paged = get_query_var('page') ? get_query_var('page') : 1 ; $perpage = 18; $offset = ($paged-1)*$perpage+1; $args = array('post_type'=>'illusts', 'posts_per_page'=>$perpage, 'offset'=>$offset, 'paged'=>$paged); if(SCF::get('mainvisual')){$args += array('post__not_in' => array(SCF::get('mainvisual')[0])); $args['offset'] -= 1;} $myquery = new WP_Query($args); if($myquery->have_posts()): $count = 2; ?>
 		<ul class="illust-list">
 			<?php while($myquery->have_posts()): $myquery->the_post(); $illust = SCF::get('illust'); $about = SCF::get('about'); $ttl = strip_tags(get_the_title()); $link = wp_get_attachment_image_src($illust, 'illust_large')[0]; ?>
 			<li>
-				<a data-featherlight="#illust<?php echo $count; ?>" href="#" class="illust-box">
+				<a href="#illust<?php echo $count; ?>" class="illust-box">
 					<div class="thumbnail"><?php if($illust){echo wp_get_attachment_image($illust, 'illust_thumb', array('alt'=>$ttl));}?></div>
 					<p class="ttl"><?php echo $ttl; ?></p>
 				</a>

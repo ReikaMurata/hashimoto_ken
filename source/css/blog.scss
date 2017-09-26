@@ -5,9 +5,21 @@
 #blog-archive{
 	width: 530px;
 	float: left;
+	.archive-ttl{
+		font-size: 2.4rem;
+		line-height: 1.3;
+		text-align: center;
+		padding: 10px;
+		border-top: 1px solid #ccc;
+		border-bottom: 1px solid #ccc;
+		margin-bottom: 20px;
+	}
 	> .list{
 		margin-bottom: 75px;
 		letter-spacing: -0.4em;
+		> p{
+			letter-spacing: 0;
+		}
 		> .post{
 			letter-spacing: 0;
 			display: inline-block;
@@ -72,11 +84,99 @@
 			margin-bottom: 30px;
 			text-align: center;
 		}
+		section{
+            font-size: 1.4rem;
+            line-height: 2;
+			@include editor;
+		}
 	}
 	.sns{
 		border-top: 1px solid $gray;
 		border-bottom: 1px solid $gray;
 		padding: 30px 0;
 		margin-bottom: 45px;
+		text-align: center;
+		ul{
+			list-style: none;
+			letter-spacing: -0.4em;
+			li{
+				letter-spacing: 0;
+				display: inline-block;
+				width: 40px;
+				padding: 0 15px;
+				a{
+					&:hover{
+						opacity: 0.7;
+					}
+				}
+			}
+		}
+	}
+}
+
+//コメント
+#post-comments{
+	font-size: 1.4rem;
+	h2{
+		font-size: 1.8rem;
+		line-height: 1.3;
+		padding-left: 20px;
+		position: relative;
+		margin-bottom: 25px;
+		&::before{
+			content: "";
+			background: url(../img/icon_comment.svg) no-repeat left top / contain;
+			width: 7px;
+			height: 20px;
+			position: absolute;
+			left: 0;
+			top: 0;
+		}
+	}
+    .comment-form-author{
+        .account{
+            text-align: right;
+            font-size: 1.2rem;
+        }
+    }
+    #author2{
+        padding: 5px 10px;
+		border: 1px solid #727171;
+		width: 100%;
+		box-sizing: border-box;
+    }
+	.comment-notes,
+	.comment-form-author,
+	.comment-form-email,
+	.comment-form-url,
+	.comment-form-comment{
+		margin-bottom: 10px;
+	}
+	input#author,
+	input#email,
+	input#url,
+	textarea#comment,
+	input#siteguard_captcha{
+		width: 100%;
+		box-sizing: border-box;
+		border: 1px solid #727171;
+		padding: 5px 10px;
+	}
+	input#siteguard_captcha{
+		width: auto;
+	}
+	.comment-form-submit{
+		margin-top: 15px;
+		text-align: center;
+	}
+	input#submit{
+		display: inline-block;
+		color: #fff;
+		background: #727171;
+		width: 140px;
+		padding: 10px;
+		border-radius: 20px;
+		border: none;
+		cursor: pointer;
 	}
 }
